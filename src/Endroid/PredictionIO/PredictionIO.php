@@ -101,7 +101,7 @@ class PredictionIO
         $command = $this->client->getCommand('itemrec_get_top_n', array('pio_engine' => $engine, 'pio_n' => $count));
         $response = $this->client->execute($command);
 
-        return $response;
+        return $response['pio_iids'];
     }
 
     /**
@@ -117,6 +117,6 @@ class PredictionIO
         $command = $this->client->getCommand('itemsim_get_top_n', array('pio_iid' => $itemId, 'pio_engine' => $engine, 'pio_n' => $count));
         $response = $this->client->execute($command);
 
-        return $response;
+        return $response['pio_iids'];
     }
 }
