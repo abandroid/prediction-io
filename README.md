@@ -14,7 +14,21 @@ Endroid PredictionIO Client
 
 $client = new Endroid\PredictionIO\PredictionIO($apiKey);
 
+// populate
+$client->createUser($userId);
+$client->createItem($itemId);
+$client->recordAction($userId, $itemId, 'view');
+
+// get recommendations and similar items
+$recommendations = $client->getRecommendations($userId, $engine, $count);
+$similarItems = $client->getSimilarItems($itemId, $engine, $count);
+
 ```
+
+## Vagrant box
+
+PredictionIO provides a [`Vagrant box`](http://docs.prediction.io/current/installation/install-predictionio-with-virtualbox-vagrant.html)
+containing an out-of-the-box PredictionIO server.
 
 ## Symfony
 
