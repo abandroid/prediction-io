@@ -12,9 +12,9 @@ Endroid PredictionIO Client
 ```php
 <?php
 
-$client = new Endroid\PredictionIO\PredictionIO($apiKey);
+$client = new Endroid\PredictionIO\PredictionIO($appKey, $apiUrl);
 
-// populate
+// populate with users, items and actions
 $client->createUser($userId);
 $client->createItem($itemId);
 $client->recordAction($userId, $itemId, 'view');

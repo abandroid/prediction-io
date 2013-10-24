@@ -28,12 +28,12 @@ class PredictionIO
     /**
      * Class constructor
      *
-     * @param $apiKey
+     * @param $appKey
      * @param null $apiUrl
      */
-    public function __construct($apiKey, $apiUrl = null)
+    public function __construct($appKey, $apiUrl = null)
     {
-        $config = array('appkey' => $apiKey);
+        $config = array('appkey' => $appKey);
 
         if ($apiUrl) {
             $config['apiurl'] = $apiUrl;
