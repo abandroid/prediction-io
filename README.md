@@ -9,11 +9,12 @@ Endroid PredictionIO
 
 The Endroid PredictionIO library provides a client which offers easy access to a PredictionIO recommendation engine.
 PredictionIO is an open source machine learning server for software developers to create predictive features, such as
-personalization, recommendation and content discovery. Through a small set of simple calls, all server functionality is
-exposed to your application. You can add users and items, register actions between these users and items and retrieve
-recommendations deduced from this information by any [`PredictionIO`](http://prediction.io/) recommendation engine.
-Applications range from showing recommended products in a web shop to discovering relevant experts in a social
-collaboration network.
+personalization, recommendation and content discovery.
+
+Through a small set of simple calls, all server functionality is exposed to your application. You can add users and items,
+register actions between these users and items and retrieve recommendations deduced from this information by any
+[`PredictionIO`](http://prediction.io/) recommendation engine. Applications range from showing recommended products in a
+web shop to discovering relevant experts in a social collaboration network.
 
 ## Requirements
 
