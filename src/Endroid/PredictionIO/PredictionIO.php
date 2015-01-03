@@ -9,8 +9,6 @@
 
 namespace Endroid\PredictionIO;
 
-use Buzz\Browser;
-use Buzz\Client\MultiCurl;
 use PredictionIO\PredictionIOClient;
 
 class PredictionIO
@@ -60,7 +58,7 @@ class PredictionIO
      * Create an item.
      *
      * @param $itemId
-     * @param int $itemTypes
+     * @param  int   $itemTypes
      * @return mixed
      */
     public function createItem($itemId, $itemTypes = 1)
@@ -76,7 +74,7 @@ class PredictionIO
      *
      * @param $userId
      * @param $itemId
-     * @param string $action
+     * @param  string $action
      * @return mixed
      */
     public function recordAction($userId, $itemId, $action = 'view')
@@ -92,7 +90,7 @@ class PredictionIO
      *
      * @param $userId
      * @param $engine
-     * @param int $count
+     * @param  int   $count
      * @return mixed
      */
     public function getRecommendations($userId, $engine, $count = 3)
@@ -109,7 +107,7 @@ class PredictionIO
      *
      * @param $itemId
      * @param $engine
-     * @param int $count
+     * @param  int   $count
      * @return mixed
      */
     public function getSimilarItems($itemId, $engine, $count = 3)

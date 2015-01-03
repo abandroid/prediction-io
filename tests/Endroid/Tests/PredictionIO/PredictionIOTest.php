@@ -9,7 +9,6 @@
 
 namespace Endroid\Tests\PredictionIO;
 
-use Endroid\PredictionIO\PredictionIO;
 
 class PredictionIOTest extends \PHPUnit_Framework_TestCase
 {
