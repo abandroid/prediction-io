@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "predictionio/predictionio": "~0.6"
+        "predictionio/predictionio": "<0.8"
     },
     "autoload": {
         "psr-0": { "Endroid": "src/" }
