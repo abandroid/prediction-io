@@ -22,6 +22,14 @@ web shop to discovering relevant experts in a social collaboration network.
 * Dependencies:
  * [`PredictionIO-PHP-SDK`](https://github.com/PredictionIO/PredictionIO-PHP-SDK)
 
+## Installation
+
+Use [Composer](https://getcomposer.org/) to install the library.
+
+``` bash
+$ composer require endroid/prediction-io
+```
+
 ## Usage
 
 ```php
