@@ -35,7 +35,9 @@ $ composer require endroid/prediction-io
 ```php
 <?php
 
-$client = new Endroid\PredictionIO\PredictionIO($appKey, $apiUrl);
+use Endroid\PredictionIO\PredictionIO;
+
+$client = new PredictionIO($appKey, $apiUrl);
 
 // populate with users, items and actions
 $client->createUser($userId);
