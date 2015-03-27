@@ -9,10 +9,6 @@
 
 namespace Endroid\Tests\PredictionIO;
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 class PredictionIOTest extends \PHPUnit_Framework_TestCase
 {
     public function testNoTestsYet()
