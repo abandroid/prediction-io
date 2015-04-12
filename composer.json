@@ -17,7 +17,9 @@
         "predictionio/predictionio": "<0.8"
     },
     "autoload": {
-        "psr-0": { "Endroid": "src/" }
+        "psr-4": {
+            "Endroid\\": "src/Endroid/"
+        }
     },
     "extra": {
         "branch-alias": {
