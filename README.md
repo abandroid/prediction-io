@@ -3,9 +3,10 @@ Endroid PredictionIO
 
 *By [endroid](http://endroid.nl/)*
 
-[![Build Status](https://secure.travis-ci.org/endroid/PredictionIO.png)](http://travis-ci.org/endroid/PredictionIO)
-[![Latest Stable Version](https://poser.pugx.org/endroid/prediction-io/v/stable.png)](https://packagist.org/packages/endroid/prediction-io)
-[![Total Downloads](https://poser.pugx.org/endroid/prediction-io/downloads.png)](https://packagist.org/packages/endroid/prediction-io)
+[![Build Status](http://img.shields.io/travis/endroid/PredictionIO.svg)](http://travis-ci.org/endroid/PredictionIO)
+[![Latest Stable Version](http://img.shields.io/packagist/v/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
+[![Total Downloads](http://img.shields.io/packagist/dt/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
+[![License](http://img.shields.io/packagist/l/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 
 The Endroid PredictionIO library provides a client which offers easy access to a PredictionIO recommendation engine.
 PredictionIO is an open source machine learning server for software developers to create predictive features, such as
