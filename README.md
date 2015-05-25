@@ -37,6 +37,8 @@ $ composer require endroid/prediction-io
 <?php
 
 use Endroid\PredictionIO\Client;
+use predictionio\EngineClient;
+use predictionio\EventClient;
 
 $eventClient = new EventClient($apiKey, $eventServerUrl);
 $engineClient = new EngineClient($engineUrl);
