@@ -36,29 +36,34 @@ $ composer require endroid/prediction-io
 ```php
 <?php
 
-use Endroid\PredictionIO\PredictionIO;
+use Endroid\PredictionIO\Client;
 
-$client = new PredictionIO($appKey, $apiUrl);
+$eventClient = new EventClient($apiKey, $eventServerUrl);
+$engineClient = new EngineClient($engineUrl);
 
-// populate with users, items and actions
+$client = new Client($eventClient, $engineClient);
+
+// Populate with users and items
 $client->createUser($userId);
 $client->createItem($itemId);
+
+// Record actions
 $client->recordAction($userId, $itemId, 'view');
 
-// get recommendations and similar items
-$recommendations = $client->getRecommendations($userId, $engine, $count);
-$similarItems = $client->getSimilarItems($itemId, $engine, $count);
+// Return recommendations
+$recommendations = $client->getRecommendations($userId, $itemCount);
 
 ```
 
 ## Vagrant box
 
-PredictionIO provides a [`Vagrant box`](http://docs.prediction.io/current/installation/install-predictionio-with-virtualbox-vagrant.html)
+PredictionIO provides a [`Vagrant box`](https://docs.prediction.io/install/install-vagrant/)
 containing an out-of-the-box PredictionIO server.
 
 ## Symfony
 
-You can use [`EndroidPredictionIOBundle`](https://github.com/endroid/EndroidPredictionIOBundle) to enable this service in your Symfony application.
+You can use [`EndroidPredictionIOBundle`](https://github.com/endroid/EndroidPredictionIOBundle)
+to enable this service in your Symfony application.
 
 ## Versioning
 
