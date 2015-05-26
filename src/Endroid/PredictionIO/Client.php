@@ -116,16 +116,35 @@ class Client
     }
 
     /**
-     * Returns the recommendations for the given user according to the engine.
+     * Returns the recommendations for the given user.
      *
      * @param $userId
      * @param int $itemCount
      *
      * @return mixed
      */
-    public function getRecommendations($userId, $itemCount = 3)
+    public function getRecommendedItems($userId, $itemCount = 3)
     {
         $response = $this->engineClient->sendQuery(array('user' => $userId, 'num' => $itemCount));
+
+        return $response;
+    }
+
+    /**
+     * Returns the items similar to the given item.
+     *
+     * @param $items
+     * @param int $itemCount
+     *
+     * @return mixed
+     */
+    public function getSimilarItems($items, $itemCount = 3)
+    {
+        if (!is_array($items)) {
+            $items = array($items);
+        }
+
+        $response = $this->engineClient->sendQuery(array('items' => $items, 'num' => $itemCount));
 
         return $response;
     }
