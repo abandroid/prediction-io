@@ -8,33 +8,22 @@
 
 namespace Endroid\PredictionIO;
 
-use predictionio\EngineClient;
-use predictionio\EventClient;
+use predictionio\EngineClient as BaseEngineClient;
+use predictionio\EventClient as BaseEventClient;
 use Endroid\PredictionIO\Model\CustomEvent;
 use Endroid\PredictionIO\Model\EntityEvent;
 
-class Client
+class EventClient extends BaseEventClient
 {
     /**
-     * @var EventClient
+     * @param string Access Key
+     * @param string Base URL to the Event Server.
+     * @param float  Timeout of the request in seconds. Use 0 to wait indefinitely
+     * @param float  Number of seconds to wait while trying to connect to a server.
      */
-    protected $eventClient;
-
-    /**
-     * @var EngineClient
-     */
-    protected $engineClient;
-
-    /**
-     * Class constructor.
-     *
-     * @param EventClient  $eventClient
-     * @param EngineClient $engineClient
-     */
-    public function __construct(EventClient $eventClient, EngineClient $engineClient)
+    public function __construct($accessKey, $baseUrl, $timeout, $connectTimeout)
     {
-        $this->eventClient  = $eventClient;
-        $this->engineClient = $engineClient;
+        parent::__construct($accessKey, $baseUrl, $timeout, $connectTimeout);
     }
 
     /**
@@ -56,7 +45,7 @@ class Client
         $event = new EntityEvent($event, $entityType, $entityId);
         $event->setProperties($properties);
         $event->setEventTime($eventTime);
-        $response = $this->eventClient->createEvent($event->toArray());
+        $response = $this->createEvent($event->toArray());
 
         return $response;
     }
@@ -86,7 +75,7 @@ class Client
         $event->setTargetEntityType($targetEntityType);
         $event->setTargetEntityId($targetEntityId);
         $event->setEventTime($eventTime);
-        $response = $this->eventClient->createEvent($event->toArray());
+        $response = $this->createEvent($event->toArray());
 
         return $response;
     }
@@ -120,14 +109,14 @@ class Client
     /**
      * Record a user action on an item.
      *
+     * @param string $action
      * @param string $userId
      * @param string $itemId
-     * @param string $action
      * @param array  $properties
      *
      * @return string JSON response
      */
-    public function recordUserActionOnItem($userId, $itemId, $action = 'view', $properties = [])
+    public function recordUserActionOnItem($action = 'view', $userId, $itemId, array $properties = [], $eventTime = null)
     {
         return $this->createCustomEvent($action, 'user', $userId, 'item', $itemId, $properties);
     }
@@ -142,55 +131,5 @@ class Client
     public function setUnavailableItems(array $items)
     {
         return $this->createEntityEvent('$set', 'constraint', 'unavailableItems', ['items' => $items]);
-    }
-
-    /**
-     * Returns the recommendations for the given user.
-     *
-     * @param string $userId
-     * @param int    $itemCount
-     *
-     * @return string JSON response
-     */
-    public function getRecommendedItems($userId, $itemCount = 3)
-    {
-        $response = $this->engineClient->sendQuery(['user' => $userId, 'num' => $itemCount]);
-
-        return $response;
-    }
-
-    /**
-     * Returns the items similar to the given item.
-     *
-     * @param string $items
-     * @param int    $itemCount
-     *
-     * @return string JSON response
-     */
-    public function getSimilarItems($items, $itemCount = 3)
-    {
-        if (!is_array($items)) {
-            $items = array($items);
-        }
-
-        $response = $this->engineClient->sendQuery(['items' => $items, 'num' => $itemCount]);
-
-        return $response;
-    }
-
-    /**
-     * @return EngineClient
-     */
-    public function getEngineClient()
-    {
-        return $this->engineClient;
-    }
-
-    /**
-     * @return EventClient
-     */
-    public function getEventClient()
-    {
-        return $this->eventClient;
     }
 }
