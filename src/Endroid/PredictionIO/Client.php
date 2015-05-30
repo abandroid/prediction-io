@@ -1,5 +1,4 @@
 <?php
-
 /*
  * (c) Jeroen van den Enden <info@endroid.nl>
  *
@@ -11,6 +10,8 @@ namespace Endroid\PredictionIO;
 
 use predictionio\EngineClient;
 use predictionio\EventClient;
+use Endroid\PredictionIO\Model\CustomEvent;
+use Endroid\PredictionIO\Model\EntityEvent;
 
 class Client
 {
@@ -32,68 +33,103 @@ class Client
      */
     public function __construct(EventClient $eventClient, EngineClient $engineClient)
     {
-        $this->eventClient = $eventClient;
+        $this->eventClient  = $eventClient;
         $this->engineClient = $engineClient;
+    }
+
+    /**
+     * @param string           $event
+     * @param string           $entityType
+     * @param string           $entityId
+     * @param array            $properties
+     * @param null | \DateTime $eventTime
+     *
+     * @return string JSON response
+     */
+    public function createEntityEvent(
+        $event,
+        $entityType,
+        $entityId,
+        array $properties = [],
+        \DateTime $eventTime = null)
+    {
+        $event = new EntityEvent($event, $entityType, $entityId);
+        $event->setProperties($properties);
+        $event->setEventTime($eventTime);
+        $response = $this->eventClient->createEvent($event->toArray());
+
+        return $response;
+    }
+
+    /**
+     * @param string         $event
+     * @param string         $entityType
+     * @param string         $entityId
+     * @param string         $targetEntityType
+     * @param string         $targetEntityId
+     * @param array          $properties
+     * @param null|\DateTime $eventTime
+     *
+     * @return string JSON response
+     */
+    public function createCustomEvent(
+        $event,
+        $entityType,
+        $entityId,
+        $targetEntityType,
+        $targetEntityId,
+        array $properties = [],
+        \DateTime $eventTime = null)
+    {
+        $event = new CustomEvent($event, $entityType, $entityId);
+        $event->setProperties($properties);
+        $event->setTargetEntityType($targetEntityType);
+        $event->setTargetEntityId($targetEntityId);
+        $event->setEventTime($eventTime);
+        $response = $this->eventClient->createEvent($event->toArray());
+
+        return $response;
     }
 
     /**
      * Create a user.
      *
-     * @param $userId
+     * @param string $userId
+     * @param array  $properties
      *
-     * @return mixed
+     * @return string JSON response
      */
-    public function createUser($userId)
+    public function createUser($userId, array $properties = [])
     {
-        $response = $this->eventClient->createEvent(array(
-            'event' => '$set',
-            'entityType' => 'user',
-            'entityId' => $userId,
-        ));
-
-        return $response;
+        return $this->createEntityEvent('$set', 'user', $userId, $properties);
     }
 
     /**
      * Create an item.
      *
-     * @param $itemId
-     * @param array $categories
+     * @param string $itemId
+     * @param array  $properties
      *
-     * @return mixed
+     * @return string JSON response
      */
-    public function createItem($itemId, $categories = array())
+    public function createItem($itemId, $properties = array())
     {
-        $response = $this->eventClient->createEvent(array(
-            'event' => '$set',
-            'entityType' => 'item',
-            'entityId' => $itemId,
-            'properties' => array('categories' => $categories),
-        ));
-
-        return $response;
+        return $this->createEntityEvent('$set', 'item', $itemId, $properties);
     }
 
     /**
      * Record a user action on an item.
      *
-     * @param $userId
-     * @param $itemId
+     * @param string $userId
+     * @param string $itemId
      * @param string $action
+     * @param array  $properties
      *
-     * @return mixed
+     * @return string JSON response
      */
-    public function recordAction($userId, $itemId, $action = 'view')
+    public function recordUserActionOnItem($userId, $itemId, $action = 'view', $properties = [])
     {
-        $response = $this->eventClient->createEvent(array(
-            'event' => $action,
-            'entityType' => 'user',
-            'entityId' => $userId,
-            'targetEntityType' => 'item',
-            'targetEntityId' => $itemId,
-        ));
-
-        return $response;
+        return $this->createCustomEvent($action, 'user', $userId, 'item', $itemId, $properties);
     }
 
     /**
@@ -101,31 +137,24 @@ class Client
      *
      * @param array $items
      *
-     * @return string
+     * @return string JSON response
      */
-    public function setUnavailable(array $items)
+    public function setUnavailableItems(array $items)
     {
-        $response = $this->eventClient->createEvent(array(
-            'event' => '$set',
-            'entityType' => 'constraint',
-            'entityId' => 'unavailableItems',
-            'properties' => array('items' => $items),
-        ));
-
-        return $response;
+        return $this->createEntityEvent('$set', 'constraint', 'unavailableItems', ['items' => $items]);
     }
 
     /**
      * Returns the recommendations for the given user.
      *
-     * @param $userId
-     * @param int $itemCount
+     * @param string $userId
+     * @param int    $itemCount
      *
-     * @return mixed
+     * @return string JSON response
      */
     public function getRecommendedItems($userId, $itemCount = 3)
     {
-        $response = $this->engineClient->sendQuery(array('user' => $userId, 'num' => $itemCount));
+        $response = $this->engineClient->sendQuery(['user' => $userId, 'num' => $itemCount]);
 
         return $response;
     }
@@ -133,10 +162,10 @@ class Client
     /**
      * Returns the items similar to the given item.
      *
-     * @param $items
-     * @param int $itemCount
+     * @param string $items
+     * @param int    $itemCount
      *
-     * @return mixed
+     * @return string JSON response
      */
     public function getSimilarItems($items, $itemCount = 3)
     {
@@ -144,8 +173,24 @@ class Client
             $items = array($items);
         }
 
-        $response = $this->engineClient->sendQuery(array('items' => $items, 'num' => $itemCount));
+        $response = $this->engineClient->sendQuery(['items' => $items, 'num' => $itemCount]);
 
         return $response;
+    }
+
+    /**
+     * @return EngineClient
+     */
+    public function getEngineClient()
+    {
+        return $this->engineClient;
+    }
+
+    /**
+     * @return EventClient
+     */
+    public function getEventClient()
+    {
+        return $this->eventClient;
     }
 }
