@@ -113,12 +113,13 @@ class EventClient extends BaseEventClient
      * @param string $userId
      * @param string $itemId
      * @param array  $properties
+     * @param null   $eventTime
      *
      * @return string JSON response
      */
     public function recordUserActionOnItem($action = 'view', $userId, $itemId, array $properties = [], $eventTime = null)
     {
-        return $this->createCustomEvent($action, 'user', $userId, 'item', $itemId, $properties);
+        return $this->createCustomEvent($action, 'user', $userId, 'item', $itemId, $properties, $eventTime);
     }
 
     /**
