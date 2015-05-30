@@ -200,7 +200,7 @@ abstract class AbstractEvent
      */
     public function getEventTime($formatted = true)
     {
-        if ($formatted) {
+        if ($formatted && $this->eventTime instanceof \DateTime) {
             return $this->eventTime->format('c');
         }
 
