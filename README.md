@@ -36,30 +36,27 @@ $ composer require endroid/prediction-io
 ```php
 <?php
 
-use Endroid\PredictionIO\Client;
-use predictionio\EngineClient;
-use predictionio\EventClient;
+use Endroid\PredictionIO\EventClient;
+use Endroid\PredictionIO\EngineClient;
 
 $eventClient = new EventClient($apiKey, $eventServerUrl);
 $engineClient = new EngineClient($engineUrl);
 
-$client = new Client($eventClient, $engineClient);
 
 // Populate with users and items
 $userProperties = ['address' => '1234 Street, San Francisco, CA 94107', 'birthday' => '22-04-1991'];
-$client->createUser($userId, $userProperties);
+$eventClient->createUser($userId, $userProperties);
 $itemProperties = ['categories' => [123, 1234, 12345]];
-$client->createItem($itemId, $itemProperties);
+$eventClient->createItem($itemId, $itemProperties);
 
 // Record actions
 $actionProperties = ['firstView' => true];
-$client->recordUserActionOnItem($userId, $itemId, 'view', $actionProperties);
+$eventClient->recordUserActionOnItem('view', $userId, $itemId, $actionProperties);
 
 // Return recommendations
 $itemCount = 20;
-$recommendedItems = $client->getRecommendedItems($userId, $itemCount);
-$similarItems = $client->getSimilarItems($itemId, $itemCount);
-
+$recommendedItems = $engineClient->getRecommendedItems($userId, $itemCount);
+$similarItems = $engineClient->getSimilarItems($itemId, $itemCount);
 ```
 
 ## Vagrant box
