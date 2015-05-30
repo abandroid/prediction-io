@@ -38,7 +38,7 @@ class EntityEvent extends AbstractEvent
      */
     public function checkEvent($event)
     {
-        if (!isset(self::$AVAILABLE_EVENTS[$event])) {
+        if (!in_array($event, self::$AVAILABLE_EVENTS)) {
             throw new \InvalidArgumentException(sprintf("Unsupported event: `%s`, available events: `%s`",
                     $event,
                     implode(', ', self::$AVAILABLE_EVENTS)
