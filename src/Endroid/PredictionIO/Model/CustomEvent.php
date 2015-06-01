@@ -3,9 +3,7 @@
 namespace Endroid\PredictionIO\Model;
 
 /**
- * Class CustomEvent
- *
- * @package Endroid\PredictionIO\Model
+ * Class CustomEvent.
  */
 class CustomEvent extends AbstractEvent
 {

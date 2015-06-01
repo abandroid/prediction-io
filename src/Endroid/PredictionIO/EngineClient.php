@@ -3,13 +3,9 @@
 namespace Endroid\PredictionIO;
 
 use predictionio\EngineClient as BaseEngineClient;
-use Endroid\PredictionIO\Model\CustomEvent;
-use Endroid\PredictionIO\Model\EntityEvent;
 
 /**
- * Class EngineClient
- *
- * @package Endroid\PredictionIO
+ * Class EngineClient.
  */
 class EngineClient extends BaseEngineClient
 {

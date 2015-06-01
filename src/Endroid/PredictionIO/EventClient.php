@@ -1,4 +1,5 @@
 <?php
+
 /*
  * (c) Jeroen van den Enden <info@endroid.nl>
  *
@@ -8,7 +9,6 @@
 
 namespace Endroid\PredictionIO;
 
-use predictionio\EngineClient as BaseEngineClient;
 use predictionio\EventClient as BaseEventClient;
 use Endroid\PredictionIO\Model\CustomEvent;
 use Endroid\PredictionIO\Model\EntityEvent;

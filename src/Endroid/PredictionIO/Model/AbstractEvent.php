@@ -3,9 +3,7 @@
 namespace Endroid\PredictionIO\Model;
 
 /**
- * Class AbstractEvent
- *
- * @package Endroid\PredictionIO\Model
+ * Class AbstractEvent.
  */
 abstract class AbstractEvent
 {
@@ -54,9 +52,9 @@ abstract class AbstractEvent
      */
     public function __construct($event, $entityType, $entityId)
     {
-        $this->event      = $event;
+        $this->event = $event;
         $this->entityType = $entityType;
-        $this->entityId   = $entityId;
+        $this->entityId = $entityId;
     }
 
     /**
@@ -131,12 +129,13 @@ abstract class AbstractEvent
      * @param $targetEntityType
      *
      * @throws \InvalidArgumentException
+     *
      * @return $this
      */
     public function setTargetEntityType($targetEntityType)
     {
         if (!$this->supportsTargetEntity()) {
-            throw new \InvalidArgumentException(sprintf("Event of type `%s` does not support setting a target entity",
+            throw new \InvalidArgumentException(sprintf('Event of type `%s` does not support setting a target entity',
                     $this->getEventType()
                 )
             );
@@ -158,12 +157,13 @@ abstract class AbstractEvent
      * @param $targetEntityId
      *
      * @throws \InvalidArgumentException
+     *
      * @return $this
      */
     public function setTargetEntityId($targetEntityId)
     {
         if (!$this->supportsTargetEntity()) {
-            throw new \InvalidArgumentException(sprintf("Event of type `%s` does not support setting a target entity",
+            throw new \InvalidArgumentException(sprintf('Event of type `%s` does not support setting a target entity',
                     $this->getEventType()
                 )
             );
@@ -240,7 +240,7 @@ abstract class AbstractEvent
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     abstract public function supportsTargetEntity();
 
@@ -265,10 +265,10 @@ abstract class AbstractEvent
      */
     public function toArray()
     {
-        $arrarizedEvent               = [];
-        $arrarizedEvent['event']      = $this->getEvent();
+        $arrarizedEvent = [];
+        $arrarizedEvent['event'] = $this->getEvent();
         $arrarizedEvent['entityType'] = $this->getEntityType();
-        $arrarizedEvent['entityId']   = $this->getEntityId();
+        $arrarizedEvent['entityId'] = $this->getEntityId();
         if ($this->supportsTargetEntity()) {
             if ($targetEntityType = $this->getTargetEntityType()) {
                 $arrarizedEvent['targetEntityType'] = $targetEntityType;

@@ -3,13 +3,11 @@
 namespace Endroid\PredictionIO\Model;
 
 /**
- * Class EntityEvent
- *
- * @package Endroid\PredictionIO\Model
+ * Class EntityEvent.
  */
 class EntityEvent extends AbstractEvent
 {
-    static $AVAILABLE_EVENTS = ['$set', '$unset', '$delete'];
+    public static $AVAILABLE_EVENTS = ['$set', '$unset', '$delete'];
 
     /**
      * @param string $event
@@ -39,7 +37,7 @@ class EntityEvent extends AbstractEvent
     public function checkEvent($event)
     {
         if (!in_array($event, self::$AVAILABLE_EVENTS)) {
-            throw new \InvalidArgumentException(sprintf("Unsupported event: `%s`, available events: `%s`",
+            throw new \InvalidArgumentException(sprintf('Unsupported event: `%s`, available events: `%s`',
                     $event,
                     implode(', ', self::$AVAILABLE_EVENTS)
                 )

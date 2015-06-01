@@ -42,7 +42,6 @@ use Endroid\PredictionIO\EngineClient;
 $eventClient = new EventClient($apiKey, $eventServerUrl);
 $engineClient = new EngineClient($engineUrl);
 
-
 // Populate with users and items
 $userProperties = ['address' => '1234 Street, San Francisco, CA 94107', 'birthday' => '22-04-1991'];
 $eventClient->createUser($userId, $userProperties);
