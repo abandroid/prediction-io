@@ -9,6 +9,7 @@
 
 namespace Endroid\PredictionIO;
 
+use DateTime;
 use predictionio\EventClient as BaseEventClient;
 use Endroid\PredictionIO\Model\CustomEvent;
 use Endroid\PredictionIO\Model\EntityEvent;
@@ -16,10 +17,10 @@ use Endroid\PredictionIO\Model\EntityEvent;
 class EventClient extends BaseEventClient
 {
     /**
-     * @param string Access Key
-     * @param string Base URL to the Event Server.
-     * @param float  Timeout of the request in seconds. Use 0 to wait indefinitely
-     * @param float  Number of seconds to wait while trying to connect to a server.
+     * @param string $accessKey      Key
+     * @param string $baseUrl        URL to the Event Server.
+     * @param float  $timeout        Timeout of the request in seconds. Use 0 to wait indefinitely
+     * @param float  $connectTimeout Number of seconds to wait while trying to connect to a server.
      */
     public function __construct($accessKey, $baseUrl, $timeout, $connectTimeout)
     {
@@ -27,20 +28,15 @@ class EventClient extends BaseEventClient
     }
 
     /**
-     * @param string           $event
-     * @param string           $entityType
-     * @param string           $entityId
-     * @param array            $properties
-     * @param null | \DateTime $eventTime
+     * @param string        $event
+     * @param string        $entityType
+     * @param string        $entityId
+     * @param array         $properties
+     * @param null|DateTime $eventTime
      *
      * @return string JSON response
      */
-    public function createEntityEvent(
-        $event,
-        $entityType,
-        $entityId,
-        array $properties = [],
-        \DateTime $eventTime = null)
+    public function createEntityEvent($event, $entityType, $entityId, array $properties = [], DateTime $eventTime = null)
     {
         $event = new EntityEvent($event, $entityType, $entityId);
         $event->setProperties($properties);
@@ -51,24 +47,17 @@ class EventClient extends BaseEventClient
     }
 
     /**
-     * @param string         $event
-     * @param string         $entityType
-     * @param string         $entityId
-     * @param string         $targetEntityType
-     * @param string         $targetEntityId
-     * @param array          $properties
-     * @param null|\DateTime $eventTime
+     * @param string        $event
+     * @param string        $entityType
+     * @param string        $entityId
+     * @param string        $targetEntityType
+     * @param string        $targetEntityId
+     * @param array         $properties
+     * @param null|DateTime $eventTime
      *
      * @return string JSON response
      */
-    public function createCustomEvent(
-        $event,
-        $entityType,
-        $entityId,
-        $targetEntityType,
-        $targetEntityId,
-        array $properties = [],
-        \DateTime $eventTime = null)
+    public function createCustomEvent($event, $entityType, $entityId, $targetEntityType, $targetEntityId, array $properties = [], DateTime $eventTime = null)
     {
         $event = new CustomEvent($event, $entityType, $entityId);
         $event->setProperties($properties);

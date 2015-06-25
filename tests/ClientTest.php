@@ -7,9 +7,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\Tests\PredictionIO;
+namespace Endroid\PredictionIO;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+
+class ClientTest extends PHPUnit_Framework_TestCase
 {
     public function testNoTestsYet()
     {

@@ -1,5 +1,5 @@
-Endroid PredictionIO
-====================
+PredictionIO
+============
 
 *By [endroid](http://endroid.nl/)*
 
@@ -8,7 +8,7 @@ Endroid PredictionIO
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 [![License](http://img.shields.io/packagist/l/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 
-The Endroid PredictionIO library provides a client which offers easy access to a PredictionIO recommendation engine.
+The PredictionIO library provides a client which offers easy access to a PredictionIO recommendation engine.
 PredictionIO is an open source machine learning server for software developers to create predictive features, such as
 personalization, recommendation and content discovery.
 
