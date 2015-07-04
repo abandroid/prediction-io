@@ -70,7 +70,7 @@ to enable this service in your Symfony application.
 
 ## Versioning
 
-Semantic versioning ([semver](http://semver.org/)) is applied.
+Semantic versioning ([semver](http://semver.org/)) is applied as much as possible.
 
 ## License
 
