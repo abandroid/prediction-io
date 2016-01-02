@@ -22,7 +22,7 @@ class EntityEvent extends AbstractEvent
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function supportsTargetEntity()
     {

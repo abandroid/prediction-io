@@ -19,7 +19,7 @@ class CustomEvent extends AbstractEvent
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function supportsTargetEntity()
     {
