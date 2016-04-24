@@ -29,7 +29,7 @@ class EngineClient extends BaseEngineClient
      */
     public function getRecommendedItems($userId, $itemCount = 3)
     {
-        $response = $this->sendQuery(['user' => $userId, 'num' => $itemCount]);
+        $response = $this->sendQuery(['user' => $userId, 'num' => intval($itemCount)]);
 
         return $response;
     }
@@ -48,7 +48,7 @@ class EngineClient extends BaseEngineClient
             $items = array($items);
         }
 
-        $response = $this->sendQuery(['items' => $items, 'num' => $itemCount]);
+        $response = $this->sendQuery(['items' => $items, 'num' => intval($itemCount)]);
 
         return $response;
     }
