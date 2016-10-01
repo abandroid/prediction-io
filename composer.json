@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "predictionio/predictionio": "^0.8"
+        "predictionio/predictionio": "^0.9"
     },
     "autoload": {
         "psr-4": {
