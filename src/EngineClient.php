@@ -2,6 +2,7 @@
 
 namespace Endroid\PredictionIO;
 
+use GuzzleHttp\Client;
 use predictionio\EngineClient as BaseEngineClient;
 
 /**
@@ -17,6 +18,13 @@ class EngineClient extends BaseEngineClient
     public function __construct($baseUrl, $timeout, $connectTimeout)
     {
         parent::__construct($baseUrl, $timeout, $connectTimeout);
+
+        $this->client = new Client([
+            'base_uri' => $baseUrl,
+            'timeout' => $timeout,
+            'connect_timeout' => $connectTimeout,
+            'verify' => false,
+        ]);
     }
 
     /**
