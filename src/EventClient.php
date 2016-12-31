@@ -17,17 +17,6 @@ use Endroid\PredictionIO\Model\EntityEvent;
 class EventClient extends BaseEventClient
 {
     /**
-     * @param string $accessKey      Key
-     * @param string $baseUrl        URL to the Event Server.
-     * @param float  $timeout        Timeout of the request in seconds. Use 0 to wait indefinitely
-     * @param float  $connectTimeout Number of seconds to wait while trying to connect to a server.
-     */
-    public function __construct($accessKey, $baseUrl, $timeout, $connectTimeout)
-    {
-        parent::__construct($accessKey, $baseUrl, $timeout, $connectTimeout);
-    }
-
-    /**
      * @param string        $event
      * @param string        $entityType
      * @param string        $entityId

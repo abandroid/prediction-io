@@ -34,39 +34,105 @@ $ composer require endroid/prediction-io
 ## Usage
 
 ```php
-<?php
-
 use Endroid\PredictionIO\EventClient;
 use Endroid\PredictionIO\EngineClient;
 
-$eventClient = new EventClient($apiKey, $eventServerUrl);
-$engineClient = new EngineClient($engineUrl);
+$apiKey = '...';
+$eventClient = new EventClient($apiKey);
+$recommendationEngineClient = new EngineClient('http://localhost:8000');
+$similarProductEngineClient = new EngineClient('http://localhost:8001');
 
 // Populate with users and items
 $userProperties = ['address' => '1234 Street, San Francisco, CA 94107', 'birthday' => '22-04-1991'];
-$eventClient->createUser($userId, $userProperties);
+$eventClient->createUser('user_1', $userProperties);
 $itemProperties = ['categories' => [123, 1234, 12345]];
-$eventClient->createItem($itemId, $itemProperties);
+$eventClient->createItem('product_1', $itemProperties);
 
 // Record actions
 $actionProperties = ['firstView' => true];
-$eventClient->recordUserActionOnItem('view', $userId, $itemId, $actionProperties);
+$eventClient->recordUserActionOnItem('view', 'user_1', 'product_1', $actionProperties);
 
 // Return recommendations
 $itemCount = 20;
-$recommendedItems = $engineClient->getRecommendedItems($userId, $itemCount);
-$similarItems = $engineClient->getSimilarItems($itemId, $itemCount);
+$recommendedProducts = $recommendationEngineClient->getRecommendedItems('user_1', $itemCount);
+$similarProducts = $similarProductEngineClient->getSimilarItems('product_1', $itemCount);
+
 ```
+
+## Symfony integration
+
+Register the Symfony bundle in the kernel.
+
+```php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = [
+        // ...
+        new Endroid\PredictionIO\Bundle\EndroidPredictionIOBundle(),
+    ];
+}
+
+```
+
+The default parameters can be overridden via the configuration.
+
+```yaml
+endroid_prediction_io:
+    event_server:
+        url: 'http://localhost:7070'
+    apps:
+        app_one:
+            key: '...'
+            engines:
+                recommendation:
+                    url: http://localhost:8000
+                similarproduct:
+                    url: http://localhost:8001
+                viewedthenbought:
+                    url: http://localhost:8002
+                complementarypurchase:
+                    url: http://localhost:8003
+                productranking:
+                    url: http://localhost:8004
+                leadscoring:
+                    url: http://localhost:8005
+        app_two:
+            key: '...'
+            engines:
+                complementarypurchase:
+                    url: http://localhost:8006
+                leadscoring:
+                    url: http://localhost:8007
+                    
+```
+
+Now you can retrieve the event and engine clients as follows.
+
+```php
+/** @var EventClient $eventClient */
+$eventClient = $this->get('endroid.prediction_io.app_one.event_client');
+
+/** @var EngineClient $recommendationEngineClient */
+$recommendationEngineClient = $this->get('endroid.prediction_io.app_one.recommendation.engine_client');
+
+/** @var EngineClient $similarProductEngineClient */
+$similarProductEngineClient = $this->get('endroid.prediction_io.app_one.similarproduct.engine_client');
+
+```
+
+## Docker
+
+Many Docker images exist for running a PredictionIO server. Personally I used the
+[`spereio`](https://github.com/sphereio/docker-predictionio) image to create an image
+that creates, trains and deploys a recommendation engine and starts the PIO server. You can find that
+image in [`my personal Docker stack`](https://github.com/endroid/docker/tree/master/docker/prediction-io).
 
 ## Vagrant box
 
 PredictionIO provides a [`Vagrant box`](https://docs.prediction.io/install/install-vagrant/)
 containing an out-of-the-box PredictionIO server.
-
-## Symfony
-
-You can use [`EndroidPredictionIOBundle`](https://github.com/endroid/EndroidPredictionIOBundle)
-to enable this service in your Symfony application.
 
 ## Versioning
 
