@@ -81,7 +81,7 @@ The default parameters can be overridden via the configuration.
 ```yaml
 endroid_prediction_io:
     event_server:
-        url: 'http://localhost:7070'
+        url: http://localhost:7070
     apps:
         app_one:
             key: '...'
