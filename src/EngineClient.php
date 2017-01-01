@@ -53,7 +53,7 @@ class EngineClient extends BaseEngineClient
     public function getSimilarItems($items, $itemCount = 3)
     {
         if (!is_array($items)) {
-            $items = array($items);
+            $items = [$items];
         }
 
         $response = $this->sendQuery(['items' => $items, 'num' => intval($itemCount)]);

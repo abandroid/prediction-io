@@ -24,6 +24,11 @@
             "Endroid\\PredictionIO\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Endroid\\PredictionIO\\Tests\\": "tests/"
+        }
+    },
     "config": {
         "bin-dir": "bin"
     },

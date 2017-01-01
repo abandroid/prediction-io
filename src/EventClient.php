@@ -79,7 +79,7 @@ class EventClient extends BaseEventClient
      *
      * @return string JSON response
      */
-    public function createItem($itemId, $properties = array())
+    public function createItem($itemId, $properties = [])
     {
         return $this->createEntityEvent('$set', 'item', $itemId, $properties);
     }
