@@ -1,0 +1,31 @@
+{
+  "name": "prediction-io-bundle",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.9.0",
+    "jquery": "^3.1.0",
+    "lodash": "^4.14.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-s-alert": "^1.2.2",
+    "style-loader": "^0.13.1",
+    "superagent": "^2.1.0",
+    "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 1"
+  },
+  "author": "Jeroen van den Enden",
+  "license": "MIT"
+}

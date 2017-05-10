@@ -3,3 +3,5 @@
 /composer.phar
 /phpunit.xml
 /vendor
+
+/node_modules

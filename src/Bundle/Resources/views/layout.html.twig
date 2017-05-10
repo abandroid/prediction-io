@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Prediction IO</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Prediction IO</a>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <main class="col-12 pt-3">
+            <h1>{% block page_title %}{% endblock %}</h1>
+            {% block page_content %}{% endblock %}
+        </main>
+    </div>
+</div>
+
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

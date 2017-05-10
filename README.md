@@ -1,5 +1,5 @@
-PredictionIO
-============
+Prediction IO
+=============
 
 *By [endroid](http://endroid.nl/)*
 
