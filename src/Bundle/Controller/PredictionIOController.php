@@ -54,7 +54,7 @@ class PredictionIOController extends Controller
                 'id' => 'U'.$n,
                 'recommendations' => $this->getRecommendationEngineClient()->getRecommendedItems('U'.$n, 5)
             ];
-            $products[] = [
+            $items[] = [
                 'id' => 'I'.$n,
                 'similar' => []
             ];
@@ -62,8 +62,7 @@ class PredictionIOController extends Controller
 
         return new JsonResponse([
             'users' => $users,
-            'items' => $items,
-            'recommendations' => $recommendations
+            'items' => $items
         ]);
     }
 

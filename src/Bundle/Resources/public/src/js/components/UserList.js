@@ -6,38 +6,27 @@ class UserList extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = { users: [], items: [] }
     }
 
     render() {
         let users = [];
-        _.each(this.props.messages, function(user, index) {
+        let component = this;
+        _.each(this.props.users, function(user, index) {
             users.push(
                 <User
                     key={index}
                     user={user}
-                    items={items}
+                    items={component.props.items}
+                    view={component.props.view}
+                    purchase={component.props.purchase}
                 />
             );
         });
 
         return (
-            <table className="table table-bordered" id="message-list">
-                <thead>
-                    <tr>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>Reference</th>
-                        <th>Message</th>
-                        <th>Recipients</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {messages}
-                </tbody>
-            </table>
+            <div className="table-responsive">
+                {users}
+            </div>
         )
     }
 }

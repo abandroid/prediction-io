@@ -1,4 +1,5 @@
 import React from 'react';
+import UserItem from './UserItem';
 
 class User extends React.Component {
 
@@ -7,31 +8,30 @@ class User extends React.Component {
     }
 
     render() {
-        let message = this.props.message;
 
-        let className = 'table-warning';
-        switch (message.translation_key) {
-            case 'delivered':
-                className = 'table-success';
-                break;
-            case 'unsent':
-            case 'rejected':
-            case 'failed':
-                className = 'table-danger';
-                break;
-            default:
-                break;
-        }
+        let items = [];
+        let component = this;
+        _.each(this.props.items, function(item, index) {
+            items.push(
+                <UserItem
+                    key={index}
+                    item={item}
+                    user={component.props.user}
+                    view={component.props.view}
+                    purchase={component.props.purchase}
+                />
+            );
+        });
 
         return (
-            <tr>
-                <td className={className}>{message.date_created}</td>
-                <td className={className}>{message.date_updated}</td>
-                <td className={className}>{message.id}</td>
-                <td className={className}>{message.body}</td>
-                <td className={className}>{message.recipients}</td>
-                <td className={className}>{message.translation_key}</td>
-            </tr>
+            <table className="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <td><strong>{this.props.user.id}</strong></td>
+                        {items}
+                    </tr>
+                </tbody>
+            </table>
         )
     }
 }

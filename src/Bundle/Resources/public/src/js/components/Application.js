@@ -79,7 +79,12 @@ class Application extends React.Component {
                                     <button type="button" className="btn btn-success" onClick={() => this.refresh()}>Refresh</button>
                                 </div>
                             </form>
-                            <UserList users={this.state.users} items={this.state.items} recommendations={this.state.recommendations} />
+                            <UserList
+                                users={this.state.users}
+                                items={this.state.items}
+                                view={this.view}
+                                purchase={this.purchase}
+                            />
                         </div>
                     </div>
                 </div>
