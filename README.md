@@ -17,7 +17,7 @@ register actions between these users and items and retrieve recommendations dedu
 [`PredictionIO`](http://prediction.io/) recommendation engine. Applications range from showing recommended products in a
 web shop to discovering relevant experts in a social collaboration network.
 
-![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIO/master/assets/recommendations.png)
+![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIO/master/src/Bundle/Resources/public/images/recommendations.png)
 
 ## Requirements
 
