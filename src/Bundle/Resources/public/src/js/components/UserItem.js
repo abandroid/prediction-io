@@ -7,21 +7,15 @@ class UserItem extends React.Component {
     }
 
     render() {
-
-        for (let i = 0; i < this.props.user.recommendations.length; i++) {
-            let recommendation = this.props.user.recommendations[i];
-            console.log(recommendation);
-        }
-
         return (
             <td>
-                <strong>{this.props.item.id}</strong>
+                <img width="150" height="225" src={"/bundles/endroidpredictionio/images/{IID}.jpg".replace('{IID}', this.props.item.id)} />
                 &nbsp;
-                <span className="fa fa-eye" aria-hidden="true" onClick={() => this.props.view(this.props.user.id, this.props.item.id)}>E</span>
+                <button type="button" className="btn btn-primary btn-sm" onClick={() => this.props.view(this.props.user.id, this.props.item.id)}>view</button>
                 &nbsp;
-                <span className="fa fa-search" aria-hidden="true" onClick={() => this.props.purchase(this.props.user.id, this.props.item.id)}>P</span>
+                <button type="button" className="btn btn-primary btn-sm" onClick={() => this.props.purchase(this.props.user.id, this.props.item.id)}>purchase</button>
                 &nbsp;
-                <span className="recommendation"></span>
+                <span className="recommendation">{this.props.recommendation.toFixed(3)}</span>
             </td>
         )
     }

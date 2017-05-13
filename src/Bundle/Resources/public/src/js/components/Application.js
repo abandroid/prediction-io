@@ -25,7 +25,6 @@ class Application extends React.Component {
                     alert('Could not load recommendation data');
                 } else {
                     this.setState(response.body);
-                    console.log(this.state);
                 }
             });
     }
@@ -79,6 +78,7 @@ class Application extends React.Component {
                                     <button type="button" className="btn btn-success" onClick={() => this.refresh()}>Refresh</button>
                                 </div>
                             </form>
+                            <br />
                             <UserList
                                 users={this.state.users}
                                 items={this.state.items}

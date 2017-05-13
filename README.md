@@ -17,6 +17,8 @@ register actions between these users and items and retrieve recommendations dedu
 [`PredictionIO`](http://prediction.io/) recommendation engine. Applications range from showing recommended products in a
 web shop to discovering relevant experts in a social collaboration network.
 
+![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIO/master/assets/recommendations.png)
+
 ## Requirements
 
 * Symfony
@@ -118,7 +120,7 @@ $eventClient = $this->get('endroid.prediction_io.app_one.event_client');
 $recommendationEngineClient = $this->get('endroid.prediction_io.app_one.recommendation.engine_client');
 
 /** @var EngineClient $similarProductEngineClient */
-$similarProductEngineClient = $this->get('endroid.prediction_io.app_one.similarproduct.engine_client');
+$similarProductEngineCl![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIO/master/assets/recommendations.png)ient = $this->get('endroid.prediction_io.app_one.similarproduct.engine_client');
 
 ```
 
