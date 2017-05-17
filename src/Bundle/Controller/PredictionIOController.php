@@ -47,7 +47,6 @@ class PredictionIOController extends Controller
     {
         $users = [];
         $items = [];
-        $recommendations = [];
 
         for ($n = 0; $n < 10; ++$n) {
             $users[] = [

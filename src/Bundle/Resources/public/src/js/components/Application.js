@@ -1,5 +1,7 @@
 import React from 'react';
 import Request from 'superagent';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
 import UserList from './UserList';
 
 class Application extends React.Component {
@@ -22,7 +24,10 @@ class Application extends React.Component {
             .get(this.props.statePath)
             .end((error, response) => {
                 if (error) {
-                    alert('Could not load recommendation data');
+                    Alert.error('Could not load recommendation data', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                 } else {
                     this.setState(response.body);
                 }
@@ -34,8 +39,15 @@ class Application extends React.Component {
             .get(this.props.initializePath)
             .end((error, response) => {
                 if (error) {
-                    alert('Initialization failed');
+                    Alert.error('Initialization failed', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                 } else {
+                    Alert.success('Initialized', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                     this.refresh();
                 }
             });
@@ -46,8 +58,15 @@ class Application extends React.Component {
             .get(this.props.viewPath.replace('UID', userId).replace('IID', itemId))
             .end((error, response) => {
                 if (error) {
-                    alert('Could not view item');
+                    Alert.error('View action could not be recorded', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                 } else {
+                    Alert.success('View action recorded', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                     this.refresh();
                 }
             });
@@ -58,8 +77,15 @@ class Application extends React.Component {
             .get(this.props.purchasePath.replace('UID', userId).replace('IID', itemId))
             .end((error, response) => {
                 if (error) {
-                    alert('Could not purchase item');
+                    Alert.error('Purchase action could not be recorded', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                 } else {
+                    Alert.success('Purchase action recorded', {
+                        position: 'bottom',
+                        timeout: 4000
+                    });
                     this.refresh();
                 }
             });
@@ -68,6 +94,7 @@ class Application extends React.Component {
     render() {
         return (
             <div className="row">
+                <Alert stack={{ limit: 3 }} />
                 <div className="col-md-12">
                     <div className="box">
                         <div className="box-body">
