@@ -1,5 +1,17 @@
 {% extends 'EndroidPredictionIOBundle::layout.html.twig' %}
 
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    {% if app.debug %}
+        <link rel="stylesheet" type="text/css" href="http://localhost:8080/build/index.css" />
+    {% else %}
+        <link rel="stylesheet" type="text/css" href="/bundles/endroidpredictionio/build/index.js" />
+    {% endif %}
+
+{% endblock %}
+
 {% block page_title %}
     Recommendation Engine
 {% endblock %}
@@ -24,9 +36,9 @@
     </script>
 
     {% if app.debug %}
-        <script src="http://localhost:8080/builds/index.js"></script>
+        <script src="http://localhost:8080/build/index.js"></script>
     {% else %}
-        <script src="{{ asset('bundles/endroidpredictionio/builds/index.js') }}"></script>
+        <script src="/bundles/endroidpredictionio/build/index.js"></script>
     {% endif %}
 
 {% endblock %}
