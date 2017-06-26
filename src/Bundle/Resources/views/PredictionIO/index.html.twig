@@ -4,11 +4,7 @@
 
     {{ parent() }}
 
-    {% if app.debug %}
-        <link rel="stylesheet" type="text/css" href="http://localhost:8080/build/index.css" />
-    {% else %}
-        <link rel="stylesheet" type="text/css" href="/bundles/endroidpredictionio/build/index.js" />
-    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ manifest_asset('build/index.css', 'bundles/endroidpredictionio/build/manifest.json') }}" />
 
 {% endblock %}
 
@@ -35,10 +31,6 @@
         }
     </script>
 
-    {% if app.debug %}
-        <script src="http://localhost:8080/build/index.js"></script>
-    {% else %}
-        <script src="/bundles/endroidpredictionio/build/index.js"></script>
-    {% endif %}
+    <script src="{{ manifest_asset('build/index.js', 'bundles/endroidpredictionio/build/manifest.json') }}"></script>
 
 {% endblock %}

@@ -128,8 +128,9 @@ $similarProductEngineCl![Recommendations](https://raw.githubusercontent.com/endr
 
 Many Docker images exist for running a PredictionIO server. Personally I used the
 [`spereio`](https://github.com/sphereio/docker-predictionio) image to create an image
-that creates, trains and deploys a recommendation engine and starts the PIO server. You can find that
-image in [`my personal Docker stack`](https://github.com/endroid/docker/tree/master/docker/prediction-io).
+that creates, trains and deploys a recommendation engine and starts the PIO server. It
+starts a cron that trains the model every 5 minutes. You can find that image
+[`here`](https://github.com/endroid/docker/tree/master/docker/prediction-io).
 
 ## Vagrant box
 
