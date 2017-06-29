@@ -7,7 +7,9 @@
  * with this source code in the file LICENSE.
  */
 
-class EndroidPredictionIOBundleTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class EndroidPredictionIOBundleTest extends TestCase
 {
     public function testNoTestsYet()
     {
