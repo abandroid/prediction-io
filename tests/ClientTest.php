@@ -7,9 +7,7 @@
  * with this source code in the file LICENSE.
  */
 
-use PHPUnit\Framework\TestCase;
-
-class ClientTest extends TestCase
+class ClientTest extends PHPUnit_Framework_TestCase
 {
     public function testNoTestsYet()
     {
