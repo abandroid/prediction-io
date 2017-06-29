@@ -1,11 +1,11 @@
 let Encore = require('@symfony/webpack-encore');
 
 Encore
-    .setOutputPath('src/Bundle/Resources/public/build/')
-    .setPublicPath('/bundles/endroidpredictionio/build')
+    .setOutputPath('src/Bundle/PredictionIODemoBundle/Resources/public/build/')
+    .setPublicPath('/bundles/endroidpredictioniodemo/build')
     .setManifestKeyPrefix('/build')
     .cleanupOutputBeforeBuild()
-    .addEntry('index', './src/Bundle/Resources/public/src/js/index.js')
+    .addEntry('index', './src/Bundle/PredictionIODemoBundle/Resources/public/src/js/index.js')
     .autoProvidejQuery()
     .enableReactPreset()
     .enableSourceMaps(!Encore.isProduction())
