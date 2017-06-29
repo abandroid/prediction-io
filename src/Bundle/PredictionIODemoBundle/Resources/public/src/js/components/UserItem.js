@@ -9,7 +9,7 @@ class UserItem extends React.Component {
     render() {
         return (
             <td>
-                <img width="150" height="225" src={"/bundles/endroidpredictionio/images/{IID}.jpg".replace('{IID}', this.props.item.id)} />
+                <img width="150" height="225" src={"/bundles/endroidpredictioniodemo/images/{IID}.jpg".replace('{IID}', this.props.item.id)} />
                 &nbsp;
                 <button type="button" className="btn btn-primary btn-sm" onClick={() => this.props.view(this.props.user.id, this.props.item.id)}>view</button>
                 &nbsp;
