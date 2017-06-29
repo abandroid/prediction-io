@@ -72,7 +72,7 @@ public function registerBundles()
 {
     $bundles = [
         // ...
-        new Endroid\PredictionIO\Bundle\EndroidPredictionIOBundle(),
+        new Endroid\PredictionIO\Bundle\PredictionIOBundle\EndroidPredictionIOBundle(),
     ];
 }
 

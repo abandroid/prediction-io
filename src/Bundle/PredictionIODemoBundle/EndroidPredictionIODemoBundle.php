@@ -7,10 +7,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\PredictionIO\Bundle;
+namespace Endroid\PredictionIO\Bundle\PredictionIODemoBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class EndroidPredictionIOBundle extends Bundle
+class EndroidPredictionIODemoBundle extends Bundle
 {
 }

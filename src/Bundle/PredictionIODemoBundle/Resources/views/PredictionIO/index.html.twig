@@ -1,10 +1,10 @@
-{% extends 'EndroidPredictionIOBundle::layout.html.twig' %}
+{% extends 'EndroidPredictionIODemoBundle::layout.html.twig' %}
 
 {% block stylesheets %}
 
     {{ parent() }}
 
-    <link rel="stylesheet" type="text/css" href="{{ manifest_asset('build/index.css', 'bundles/endroidpredictionio/build/manifest.json') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ manifest_asset('build/index.css', 'bundles/endroidpredictioniodemo/build/manifest.json') }}" />
 
 {% endblock %}
 
@@ -31,6 +31,6 @@
         }
     </script>
 
-    <script src="{{ manifest_asset('build/index.js', 'bundles/endroidpredictionio/build/manifest.json') }}"></script>
+    <script src="{{ manifest_asset('build/index.js', 'bundles/endroidpredictioniodemo/build/manifest.json') }}"></script>
 
 {% endblock %}

@@ -7,7 +7,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\PredictionIO\Bundle\Controller;
+namespace Endroid\PredictionIO\Bundle\PredictionIODemoBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
