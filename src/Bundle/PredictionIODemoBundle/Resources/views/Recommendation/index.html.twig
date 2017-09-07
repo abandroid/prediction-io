@@ -1,0 +1,19 @@
+{% extends '@EndroidPredictionIODemo/layout.html.twig' %}
+
+{% block content %}
+    <h1>PredictionIO Recommendation Engine</h1>
+    <div id="application"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let appConfig = {
+            statePath: "{{ path('endroid_predictionio_recommendation_state') }}",
+            initializePath: "{{ path('endroid_predictionio_recommendation_initialize') }}",
+            viewPath: "{{ path('endroid_predictionio_recommendation_view', { userId: 'UID', itemId: 'IID' }) }}",
+            purchasePath: "{{ path('endroid_predictionio_recommendation_purchase', { userId: 'UID', itemId: 'IID' }) }}",
+        }
+    </script>
+    <script src="{{ preload(asset('/build/recommendation.js', 'endroid_prediction_io')) }}"></script>
+{% endblock %}

@@ -26,6 +26,7 @@ class EndroidPredictionIOExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+
         $eventServer = $config['event_server'];
         foreach ($config['apps'] as $app => $appConfig) {
             $eventClient = new Definition('Endroid\PredictionIO\EventClient');
