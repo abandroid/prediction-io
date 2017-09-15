@@ -1,5 +1,10 @@
 {% extends '@EndroidPredictionIODemo/layout.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ preload(asset('/build/recommendation.css', 'endroid_prediction_io')) }}">
+{% endblock %}
+
 {% block content %}
     <h1>PredictionIO Recommendation Engine</h1>
     <div id="application"></div>

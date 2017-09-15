@@ -15,7 +15,8 @@
     "superagent": "^3.5.2"
   },
   "scripts": {
-    "build": "node_modules/.bin/encore production"
+    "build": "node_modules/.bin/encore production",
+    "watch": "node_modules/.bin/encore production --watch"
   },
   "author": "Jeroen van den Enden",
   "license": "MIT"
