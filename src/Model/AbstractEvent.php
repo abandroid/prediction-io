@@ -249,7 +249,7 @@ abstract class AbstractEvent
      */
     public function isEntityEvent()
     {
-        return $this->getEventType() == self::EVENT_TYPE_ENTITY;
+        return self::EVENT_TYPE_ENTITY == $this->getEventType();
     }
 
     /**
@@ -257,7 +257,7 @@ abstract class AbstractEvent
      */
     public function isCustomEvent()
     {
-        return $this->getEventType() == self::EVENT_TYPE_CUSTOM;
+        return self::EVENT_TYPE_CUSTOM == $this->getEventType();
     }
 
     /**

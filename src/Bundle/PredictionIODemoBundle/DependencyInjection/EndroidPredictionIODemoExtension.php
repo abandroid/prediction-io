@@ -33,10 +33,10 @@ class EndroidPredictionIODemoExtension extends Extension implements PrependExten
             'assets' => [
                 'packages' => [
                     'endroid_prediction_io' => [
-                        'json_manifest_path' => '%kernel.project_dir%/public/bundles/endroidpredictioniodemo/build/manifest.json'
-                    ]
-                ]
-            ]
+                        'json_manifest_path' => '%kernel.project_dir%/public/bundles/endroidpredictioniodemo/build/manifest.json',
+                    ],
+                ],
+            ],
         ]);
     }
 }

@@ -11,11 +11,11 @@ use predictionio\EngineClient as BaseEngineClient;
 class EngineClient extends BaseEngineClient
 {
     /**
-     * @param string Base URL to the Engine Instance.
+     * @param string base URL to the Engine Instance
      * @param float  Timeout of the request in seconds. Use 0 to wait indefinitely
-     * @param float  Number of seconds to wait while trying to connect to a server.
+     * @param float  number of seconds to wait while trying to connect to a server
      */
-    public function __construct($baseUrl = "http://localhost:8000", $timeout = 0, $connectTimeout = 5)
+    public function __construct($baseUrl = 'http://localhost:8000', $timeout = 0, $connectTimeout = 5)
     {
         parent::__construct($baseUrl, $timeout, $connectTimeout);
 

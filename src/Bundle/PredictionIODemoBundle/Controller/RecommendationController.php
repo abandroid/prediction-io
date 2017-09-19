@@ -51,17 +51,17 @@ class RecommendationController extends Controller
         for ($n = 0; $n < 10; ++$n) {
             $users[] = [
                 'id' => 'U'.$n,
-                'recommendations' => $this->getRecommendationEngineClient()->getRecommendedItems('U'.$n, 5)
+                'recommendations' => $this->getRecommendationEngineClient()->getRecommendedItems('U'.$n, 5),
             ];
             $items[] = [
                 'id' => 'I'.$n,
-                'similar' => []
+                'similar' => [],
             ];
         }
 
         return new JsonResponse([
             'users' => $users,
-            'items' => $items
+            'items' => $items,
         ]);
     }
 
@@ -85,6 +85,7 @@ class RecommendationController extends Controller
      *
      * @param string $userId
      * @param string $itemId
+     *
      * @return Response
      */
     public function viewAction($userId, $itemId)
@@ -99,6 +100,7 @@ class RecommendationController extends Controller
      *
      * @param string $userId
      * @param string $itemId
+     *
      * @return Response
      */
     public function purchaseAction($userId, $itemId)
