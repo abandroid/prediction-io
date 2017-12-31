@@ -2,7 +2,7 @@
     "name": "endroid/prediction-io",
     "description": "Endroid PredictionIO Client",
     "keywords": ["endroid", "prediction", "io", "predictionio", "bundle", "symfony"],
-    "homepage": "https://github.com/endroid/PredictionIO",
+    "homepage": "https://github.com/endroid/prediction-io",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
