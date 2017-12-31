@@ -1,7 +1,7 @@
 Prediction IO
 =============
 
-*By [endroid](http://endroid.nl/)*
+*By [endroid](https://endroid.nl/)*
 
 [![Build Status](http://img.shields.io/travis/endroid/PredictionIO.svg)](http://travis-ci.org/endroid/PredictionIO)
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
