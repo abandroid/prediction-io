@@ -2,7 +2,7 @@
 
 *By [endroid](https://endroid.nl/)*
 
-[![Build Status](http://img.shields.io/travis/endroid/PredictionIO.svg)](http://travis-ci.org/endroid/PredictionIO)
+[![Build Status](http://img.shields.io/travis/endroid/prediction-io.svg)](http://travis-ci.org/endroid/prediction-io)
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 [![License](http://img.shields.io/packagist/l/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
