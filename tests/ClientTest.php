@@ -7,7 +7,11 @@
  * with this source code in the file LICENSE.
  */
 
-class ClientTest extends PHPUnit_Framework_TestCase
+namespace Endroid\Guide\Tests;
+
+use PHPUnit\Framework\TestCase;
+
+class ClientTest extends TestCase
 {
     public function testNoTestsYet()
     {
