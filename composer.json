@@ -1,6 +1,6 @@
 {
     "name": "endroid/prediction-io",
-    "description": "Endroid PredictionIO Client",
+    "description": "Endroid PredictionIo Client",
     "keywords": ["endroid", "prediction", "io", "predictionio", "php"],
     "homepage": "https://github.com/endroid/prediction-io",
     "type": "library",
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Endroid\\PredictionIO\\": "src/"
+            "Endroid\\PredictionIo\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Endroid\\PredictionIO\\Tests\\": "tests/"
+            "Endroid\\PredictionIo\\Tests\\": "tests/"
         }
     },
     "extra": {

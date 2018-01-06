@@ -1,6 +1,6 @@
 <?php
 
-namespace Endroid\PredictionIO;
+namespace Endroid\PredictionIo;
 
 use GuzzleHttp\Client;
 use predictionio\EngineClient as BaseEngineClient;

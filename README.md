@@ -7,22 +7,22 @@
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 [![License](http://img.shields.io/packagist/l/endroid/prediction-io.svg)](https://packagist.org/packages/endroid/prediction-io)
 
-The PredictionIO library provides a client which offers easy access to a PredictionIO recommendation engine.
-PredictionIO is an open source machine learning server for software developers to create predictive features, such as
+The Prediction IO library provides a client which offers easy access to a PredictionIo recommendation engine.
+PredictionIo is an open source machine learning server for software developers to create predictive features, such as
 personalization, recommendation and content discovery.
 
 Through a small set of simple calls, all server functionality is exposed to your application. You can add users and items,
 register actions between these users and items and retrieve recommendations deduced from this information by any
-[`PredictionIO`](http://prediction.io/) recommendation engine. Applications range from showing recommended products in a
+[`PredictionIo`](http://prediction.io/) recommendation engine. Applications range from showing recommended products in a
 web shop to discovering relevant experts in a social collaboration network.
 
-![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIO/master/src/Bundle/Resources/public/images/recommendations.png)
+![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIo/master/src/Bundle/Resources/public/images/recommendations.png)
 
 ## Requirements
 
 * Symfony
 * Dependencies:
- * [`PredictionIO-PHP-SDK`](https://github.com/PredictionIO/PredictionIO-PHP-SDK)
+ * [`PredictionIo-PHP-SDK`](https://github.com/PredictionIo/PredictionIo-PHP-SDK)
 
 ## Installation
 
@@ -35,8 +35,8 @@ $ composer require endroid/prediction-io
 ## Usage
 
 ```php
-use Endroid\PredictionIO\EventClient;
-use Endroid\PredictionIO\EngineClient;
+use Endroid\PredictionIo\EventClient;
+use Endroid\PredictionIo\EngineClient;
 
 $apiKey = '...';
 $eventClient = new EventClient($apiKey);
@@ -71,7 +71,7 @@ public function registerBundles()
 {
     $bundles = [
         // ...
-        new Endroid\PredictionIO\Bundle\PredictionIOBundle\EndroidPredictionIOBundle(),
+        new Endroid\PredictionIo\Bundle\PredictionIoBundle\EndroidPredictionIoBundle(),
     ];
 }
 
@@ -119,13 +119,13 @@ $eventClient = $this->get('endroid.prediction_io.app_one.event_client');
 $recommendationEngineClient = $this->get('endroid.prediction_io.app_one.recommendation.engine_client');
 
 /** @var EngineClient $similarProductEngineClient */
-$similarProductEngineCl![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIO/master/assets/recommendations.png)ient = $this->get('endroid.prediction_io.app_one.similarproduct.engine_client');
+$similarProductEngineCl![Recommendations](https://raw.githubusercontent.com/endroid/PredictionIo/master/assets/recommendations.png)ient = $this->get('endroid.prediction_io.app_one.similarproduct.engine_client');
 
 ```
 
 ## Docker
 
-Many Docker images exist for running a PredictionIO server. Personally I used the
+Many Docker images exist for running a PredictionIo server. Personally I used the
 [`spereio`](https://github.com/sphereio/docker-predictionio) image to create an image
 that creates, trains and deploys a recommendation engine and starts the PIO server. It
 starts a cron that trains the model every 5 minutes. You can find that image
@@ -133,8 +133,8 @@ starts a cron that trains the model every 5 minutes. You can find that image
 
 ## Vagrant box
 
-PredictionIO provides a [`Vagrant box`](https://docs.prediction.io/install/install-vagrant/)
-containing an out-of-the-box PredictionIO server.
+PredictionIo provides a [`Vagrant box`](https://docs.prediction.io/install/install-vagrant/)
+containing an out-of-the-box PredictionIo server.
 
 ## Versioning
 

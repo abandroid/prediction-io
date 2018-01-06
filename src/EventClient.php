@@ -7,12 +7,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\PredictionIO;
+namespace Endroid\PredictionIo;
 
 use DateTime;
 use predictionio\EventClient as BaseEventClient;
-use Endroid\PredictionIO\Model\CustomEvent;
-use Endroid\PredictionIO\Model\EntityEvent;
+use Endroid\PredictionIo\Model\CustomEvent;
+use Endroid\PredictionIo\Model\EntityEvent;
 
 class EventClient extends BaseEventClient
 {

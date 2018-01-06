@@ -1,6 +1,6 @@
 <?php
 
-namespace Endroid\PredictionIO\Model;
+namespace Endroid\PredictionIo\Model;
 
 /**
  * Class AbstractEvent.
