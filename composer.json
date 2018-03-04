@@ -14,6 +14,7 @@
     ],
     "require": {
         "php": ">=7.1",
+        "guzzlehttp/guzzle": ">=6.3.0",
         "predictionio/predictionio": "^0.9"
     },
     "require-dev": {
