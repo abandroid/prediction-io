@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 class EngineClientTest extends TestCase
 {
-    public function testNoTestsYet()
+    public function testConnectException()
     {
         $engineClient = new EngineClient('http://localhost:8000');
 
