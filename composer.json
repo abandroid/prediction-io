@@ -13,8 +13,9 @@
     ],
     "require": {
         "php": ">=7.1",
-        "guzzlehttp/guzzle": ">=6.3.0",
-        "predictionio/predictionio": "^0.9"
+        "endroid/installer": "^1.0",
+        "predictionio/predictionio": "^0.9",
+        "guzzlehttp/guzzle": ">=6.3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7|^6.0"
