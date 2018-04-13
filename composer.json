@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "endroid/installer": "^1.0",
+        "endroid/installer": "^1.0.3",
         "predictionio/predictionio": "^0.9",
         "guzzlehttp/guzzle": ">=6.3.0"
     },
