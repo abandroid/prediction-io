@@ -3,7 +3,7 @@ language: php
 php:
   - 7.1
   - 7.2
-  - nightly
+  - 7.3
 
 env:
   - COMPOSER_FLAGS="--prefer-lowest"
@@ -24,4 +24,5 @@ script:
   - vendor/bin/phpunit
 
 notifications:
-  email: info@endroid.nl
+  email:
+    - info@endroid.nl
